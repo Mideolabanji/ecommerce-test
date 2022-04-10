@@ -1,10 +1,11 @@
 import "./App.css";
-import SignUp from "./SignUp";
+import Products from "./Products";
 
 function App() {
   return (
     <div className="App">
-      Test <SignUp />
+      Test Website
+      <Products />
     </div>
   );
 }
