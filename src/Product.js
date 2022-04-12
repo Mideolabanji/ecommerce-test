@@ -13,14 +13,15 @@ import useStyles from "./Styles";
 export default function ({ product }) {
   const classes = useStyles();
   return (
-    <Card className="classes.root">
+    <Card className={classes.root}>
       <CardMedia
         className="classes.media"
+        component="img"
         image={product.image}
         title={product.name}
       />
       <CardContent>
-        <div className="classes.cardContent">
+        <div className={classes.cardContent}>
           <Typography variant="h5" gutterBottom>
             {product.name}
           </Typography>
@@ -29,7 +30,7 @@ export default function ({ product }) {
         <Typography variant="body2" color="textSecondary">
           {product.description}
         </Typography>
-        <CardActions disableSpacing className="classes.cardActions">
+        <CardActions disableSpacing className={classes.cardActions}>
           <IconButton aria-label="Add to Cart">
             <AddShoppingCart />
           </IconButton>

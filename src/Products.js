@@ -1,28 +1,32 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product";
+import useStyles from "./ProductsStyles";
+
+const products = [
+  {
+    id: 1,
+    name: "Shoes",
+    description: "running shoes",
+    price: "$30",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAIz-0buQYqHSlTNtuWYAtBHxBbKkugSpfQ6Gd6x7AktpD1ZQStOTiyUmC6KwrIb4s2d0&usqp=CAU",
+  },
+  {
+    id: 2,
+    name: "Sunglasses",
+    description: "stylish sunglasses",
+    price: "$10",
+    image:
+      "https://assets.vogue.com/photos/60f0a372ffbabf731bdd26c5/master/w_1280,c_limit/slide_19.jpg",
+  },
+];
 
 export default function Products() {
-  const products = [
-    {
-      id: 1,
-      name: "Shoes",
-      description: "running shoes",
-      price: "$30",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-3iFJ0XC6mxw2sf--HbKyL4Bmqmb6BpzekJd9XVRMH4o0OZUBSkFfQc4OvXCErDbuCIM&usqp=CAU",
-    },
-    {
-      id: 2,
-      name: "Dress",
-      description: "slip dress",
-      price: "$10",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT87WOT056Pa6PFjpTGtoHvcDuGYVUcHAuOkXHCn3N8&s",
-    },
-  ];
+  const classes = useStyles();
   return (
-    <main>
+    <main className={classes.content}>
+      <div className={classes.toolbar} />
       <Grid container justifyContent="center" spacing={4}>
         {products.map(function (product) {
           return (
