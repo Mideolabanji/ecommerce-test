@@ -9,24 +9,39 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
+import { Link, useLocation } from "react-router-dom";
 import useStyles from "./NavbarStyles";
 
 export default function Navbar({ totalItems }) {
   const classes = useStyles();
+  const location = useLocation();
   return (
     <AppBar position="fixed" className={classes.appBar} color="inherit">
       <Toolbar>
-        <Typography variant="h5" className={classes.title} color="inherit">
-          <img src="" className={classes.image} alt="Test.js" height="25px" />
+        <Typography
+          component={Link}
+          to="/"
+          variant="h5"
+          className={classes.title}
+          color="inherit"
+        >
           Test.js
+          <img src="" className={classes.image} height="25px" />
         </Typography>
         <div className={classes.grow} />
         <div className={classes.button}>
-          <IconButton aria-label="show cart items" color="inherit">
-            <Badge badgeContent={totalItems} color="secondary">
-              <ShoppingCart />
-            </Badge>
-          </IconButton>
+          {location.pathname === "/" && (
+            <IconButton
+              component={Link}
+              to="/cart"
+              aria-label="show cart items"
+              color="inherit"
+            >
+              <Badge badgeContent={totalItems} color="secondary">
+                <ShoppingCart />
+              </Badge>
+            </IconButton>
+          )}
         </div>
       </Toolbar>
     </AppBar>
