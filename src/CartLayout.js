@@ -4,7 +4,12 @@ import { Container, Typography, Button, Grid } from "@material-ui/core";
 import useStyles from "./CartLayoutStyles";
 import CartItem from "./CartItem";
 
-export default function CartLayout({ cart }) {
+export default function CartLayout({
+  cart,
+  handleUpdateCartQty,
+  handleRemoveFromCart,
+  handleEmptyCart,
+}) {
   const isEmpty = cart.line_items === 0;
   const classes = useStyles();
 
@@ -28,7 +33,11 @@ export default function CartLayout({ cart }) {
             {cart.line_items.map(function (item) {
               return (
                 <Grid item xs={12} sm={4} key={item.id}>
-                  <CartItem item={item} />
+                  <CartItem
+                    item={item}
+                    handleUpdateCartQty={handleUpdateCartQty}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                  />
                 </Grid>
               );
             })}
@@ -45,6 +54,7 @@ export default function CartLayout({ cart }) {
               color="secondary"
               variant="contained"
               type="button"
+              onClick={handleEmptyCart}
             >
               Empty Cart
             </Button>
