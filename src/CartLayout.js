@@ -64,6 +64,8 @@ export default function CartLayout({
               color="primary"
               variant="contained"
               type="button"
+              component={Link}
+              to="/checkout"
             >
               Checkout
             </Button>

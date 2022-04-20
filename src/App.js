@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Products from "./Products";
 import { commerce } from "./lib/commerce";
 import CartLayout from "./CartLayout";
+import CheckoutPage from "./CheckoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -68,6 +69,7 @@ function App() {
               />
             }
           />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </div>
     </Router>
