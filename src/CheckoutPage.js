@@ -32,14 +32,18 @@ export default function CheckoutPage({ cart }) {
       } catch (error) {}
     };
     generateToken();
-  }, []);
+  }, [cart]);
 
   function Confirmation() {
     return "Confirmation";
   }
 
   const Form = () => {
-    return activeStep === 0 ? <AddressForm /> : <PaymentForm />;
+    return activeStep === 0 ? (
+      <AddressForm checkoutToken={checkoutToken} />
+    ) : (
+      <PaymentForm />
+    );
   };
 
   return (
@@ -59,7 +63,11 @@ export default function CheckoutPage({ cart }) {
               );
             })}
           </Stepper>
-          {activeStep === steps.length ? <Confirmation /> : <Form />}
+          {activeStep === steps.length ? (
+            <Confirmation />
+          ) : (
+            checkoutToken && <Form />
+          )}
         </Paper>
       </main>
     </>
