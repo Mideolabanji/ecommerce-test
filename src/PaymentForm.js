@@ -8,10 +8,10 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 import Review from "./Review";
 
-export default function PaymentForm() {
+export default function PaymentForm({ checkoutToken }) {
   return (
     <>
-      <Review />
+      <Review checkoutToken={checkoutToken} />
     </>
   );
 }
